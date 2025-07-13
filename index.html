@@ -2,65 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Malla Curricular</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #f7f7f7;
-      padding: 2rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-    }
-    .materia {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .materia.aprobada {
-      background: #d1e7dd;
-      text-decoration: line-through;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malla Interactiva de Publicidad</title>
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-  <h1>Malla Curricular - Publicidad</h1>
-  <div class="grid" id="malla">
-    <div class="materia">Comunicación I</div>
-    <div class="materia">Publicidad I</div>
-    <div class="materia">Sociología</div>
-    <div class="materia">Metodología</div>
-    <!-- Agregá más materias acá -->
-  </div>
-
-  <script>
-    const materias = document.querySelectorAll('.materia');
-
-    materias.forEach(m => {
-      m.addEventListener('click', () => {
-        m.classList.toggle('aprobada');
-        guardarEstado();
-      });
-    });
-
-    function guardarEstado() {
-      const estado = Array.from(materias).map(m => m.classList.contains('aprobada'));
-      localStorage.setItem('estadoMaterias', JSON.stringify(estado));
-    }
-
-    function cargarEstado() {
-      const estado = JSON.parse(localStorage.getItem('estadoMaterias')) || [];
-      materias.forEach((m, i) => {
-        if (estado[i]) m.classList.add('aprobada');
-      });
-    }
-
-    cargarEstado();
-  </script>
+  <h1>Malla Interactiva - Licenciatura en Publicidad</h1>
+  <div class="grid"></div>
+  <script src="script.js"></script>
 </body>
 </html>
