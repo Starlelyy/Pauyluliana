@@ -9,7 +9,7 @@ const materias = [
   { nombre: "psicología general" },
   // Segundo Año
   { nombre: "introducción a la publicidad", requiere: ["Historia social general", "introducción a la comunicación"], tipo: ["aprobada", "aprobada"] },
-  { nombre: "psicología social", requiere: ["Introducción a la Sociología", "psicologia general"], tipo: ["aprobada", "aprobada"] },
+  { nombre: "psicología social", requiere: ["Introducción a la Sociología", "psicología general"], tipo: ["aprobada", "aprobada"] },
   { nombre: "lingüística", requiere: ["Introducción a la Sociología", "taller de lectura y escritura"], tipo: ["aprobada", "aprobada"] },
   { nombre: "comunicación visual", requiere: ["introducción a la comunicación", "taller de lectura y escritura"], tipo: ["aprobada", "aprobada"] },
   { nombre: "marketing I", requiere: ["economía general", "introducción a la comunicación"], tipo: ["aprobada", "aprobada"] },
@@ -50,9 +50,32 @@ function crearMateria(materia, index) {
       <option value="aprobada">Aprobada</option>
     </select>
   `;
-
-  div.querySelector("select").addEventListener("change", () => verificarDesbloqueo());
+  div.querySelector("select").addEventListener("change", () => {
+    guardarEstado();
+    verificarDesbloqueo();
+  });
   grid.appendChild(div);
+}
+
+function guardarEstado() {
+  const estado = {};
+  document.querySelectorAll(".card").forEach(card => {
+    const nombre = card.querySelector("h2").innerText;
+    const valor = card.querySelector("select").value;
+    estado[nombre] = valor;
+  });
+  localStorage.setItem("estadoMaterias", JSON.stringify(estado));
+}
+
+function cargarEstado() {
+  const estado = JSON.parse(localStorage.getItem("estadoMaterias") || "{}");
+  document.querySelectorAll(".card").forEach(card => {
+    const nombre = card.querySelector("h2").innerText;
+    const select = card.querySelector("select");
+    if (estado[nombre]) {
+      select.value = estado[nombre];
+    }
+  });
 }
 
 function verificarDesbloqueo() {
@@ -90,4 +113,5 @@ function verificarDesbloqueo() {
 }
 
 materias.forEach((m, i) => crearMateria(m, i));
+cargarEstado();
 verificarDesbloqueo();
