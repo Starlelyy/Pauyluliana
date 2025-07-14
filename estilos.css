@@ -1,73 +1,58 @@
 body {
-  background-color: #fff0f0;
-  font-family: sans-serif;
-  padding: 2rem;
+  font-family: Arial, sans-serif;
+  background-color: #fbeaea;
   color: #333;
+  margin: 0;
+  padding: 20px;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 2rem;
-  color: #a33;
+  color: #a33d3d;
 }
 
-.malla {
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
-.materia {
+.card {
   background-color: #ffe5e5;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  border-left: 5px solid #d66;
-  position: relative;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
+  border: 2px solid #cc6b6b;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
 }
 
-.materia[data-estado="regularizada"] {
-  background-color: #ffd2d2;
-  border-left-color: #c44;
+.card:hover {
+  transform: scale(1.02);
 }
 
-.materia[data-estado="aprobada"] {
-  background-color: #ffb3b3;
-  border-left-color: #a33;
-  text-decoration: line-through;
+.card h2 {
+  margin-top: 0;
+  color: #992929;
+  font-size: 18px;
 }
 
-.materia.bloqueada {
-  background-color: #f5cccc;
-  opacity: 0.5;
+.card select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #b55e5e;
+  background-color: #fff0f0;
+  color: #992929;
+}
+
+.card.locked {
+  opacity: 0.6;
   pointer-events: none;
+  background-color: #f8d2d2;
 }
 
-.materia h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
-}
-
-.materia .estado {
-  margin-top: 0.5rem;
-  display: flex;
-  gap: 0.5rem;
-}
-
-.estado button {
-  flex: 1;
-  padding: 0.3rem 0.5rem;
-  font-size: 0.8rem;
-  border: none;
-  border-radius: 6px;
-  background-color: #ffcccc;
-  color: #600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.estado button:hover {
-  background-color: #ff9999;
+.card.unlocked {
+  opacity: 1;
+  pointer-events: auto;
 }
