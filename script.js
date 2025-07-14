@@ -6,6 +6,7 @@ const materias = [
   { nombre: "economía general" },
   { nombre: "introducción a la comunicación" },
   { nombre: "taller de lectura y escritura" },
+  { nombre: "psicología general" },
   // Segundo Año
   { nombre: "introducción a la publicidad", requiere: ["Historia social general", "introducción a la comunicación"], tipo: ["aprobada", "aprobada"] },
   { nombre: "psicología social", requiere: ["Introducción a la Sociología", "psicologia general"], tipo: ["aprobada", "aprobada"] },
