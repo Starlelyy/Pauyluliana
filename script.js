@@ -1,5 +1,4 @@
 const materias = [
-  // Primer Año
   { nombre: "Filosofía" },
   { nombre: "Historia social general" },
   { nombre: "Introducción a la Sociología" },
@@ -7,7 +6,6 @@ const materias = [
   { nombre: "introducción a la comunicación" },
   { nombre: "taller de lectura y escritura" },
   { nombre: "psicología general" },
-  // Segundo Año
   { nombre: "introducción a la publicidad", requiere: ["Historia social general", "introducción a la comunicación"], tipo: ["aprobada", "aprobada"] },
   { nombre: "psicología social", requiere: ["Introducción a la Sociología", "psicología general"], tipo: ["aprobada", "aprobada"] },
   { nombre: "lingüística", requiere: ["Introducción a la Sociología", "taller de lectura y escritura"], tipo: ["aprobada", "aprobada"] },
@@ -16,7 +14,6 @@ const materias = [
   { nombre: "diseño y producción gráfica", requiere: ["comunicación visual", "introducción a la publicidad"], tipo: ["regularizada", "aprobada"] },
   { nombre: "metodología de la investigación social", requiere: ["Filosofía", "Introducción a la Sociología"], tipo: ["aprobada", "aprobada"] },
   { nombre: "comunicación I", requiere: ["Historia social general", "introducción a la comunicación"], tipo: ["aprobada", "aprobada"] },
-  // Tercer Año
   { nombre: "medios de comunicación publicitaria", requiere: ["marketing I", "introducción a la publicidad"], tipo: ["regularizada", "aprobada"] },
   { nombre: "redacción publicitaria", requiere: ["lingüística"], tipo: ["aprobada"] },
   { nombre: "Producción audiovisual", requiere: ["diseño y producción gráfica", "comunicación visual"], tipo: ["regularizada", "aprobada"] },
@@ -25,7 +22,6 @@ const materias = [
   { nombre: "opinión pública", requiere: ["metodología de la investigación social"], tipo: ["aprobada"] },
   { nombre: "marketing II", requiere: ["marketing I"], tipo: ["aprobada"] },
   { nombre: "comunicación III", requiere: ["comunicación II", "comunicación I"], tipo: ["regularizada", "aprobada"] },
-  // Cuarto Año
   { nombre: "Semiología", requiere: ["redacción publicitaria", "lingüística"], tipo: ["regularizada", "aprobada"] },
   { nombre: "organización y administración de la empresa publicitaria", requiere: ["planificación de medios", "medios de comunicación publicitaria"], tipo: ["regularizada", "aprobada"] },
   { nombre: "diseño multimedial", requiere: ["Producción audiovisual", "diseño y producción gráfica"], tipo: ["regularizada", "aprobada"] },
@@ -83,7 +79,6 @@ function verificarDesbloqueo() {
 
   materias.forEach((m, i) => {
     const card = document.getElementById(`materia-${i}`);
-    const nombre = m.nombre;
 
     if (!m.requiere) {
       card.classList.remove("locked");
@@ -100,32 +95,6 @@ function verificarDesbloqueo() {
       if (tipo === "aprobada" && estado !== "aprobada") habilitada = false;
       if (tipo === "regularizada" && estado !== "regularizada" && estado !== "aprobada") habilitada = false;
     }
-
-    if (habilitada) {
-      card.classList.remove("locked");
-      card.classList.add("unlocked");
-    } else {
-      card.classList.remove("unlocked");
-      card.classList.add("locked");
-    }
-  });
-}
-
-  materias.forEach((m, i) => {
-    const card = document.getElementById(`materia-${i}`);
-    if (!m.requiere) {
-      card.classList.remove("locked");
-      card.classList.add("unlocked");
-      return;
-    }
-
-    let habilitada = true;
-    m.requiere.forEach((req, idx) => {
-      const tipoNecesario = m.tipo[idx];
-      const estadoActual = estados[req];
-      if (tipoNecesario === "aprobada" && estadoActual !== "aprobada") habilitada = false;
-      if (tipoNecesario === "regularizada" && estadoActual !== "regularizada" && estadoActual !== "aprobada") habilitada = false;
-    });
 
     if (habilitada) {
       card.classList.remove("locked");
