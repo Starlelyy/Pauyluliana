@@ -79,12 +79,37 @@ function cargarEstado() {
 }
 
 function verificarDesbloqueo() {
-  const estados = {};
-  document.querySelectorAll(".card").forEach(card => {
-    const nombre = card.querySelector("h2").innerText;
-    const estado = card.querySelector("select").value;
-    estados[nombre] = estado;
+  const estadoGuardado = JSON.parse(localStorage.getItem("estadoMaterias") || "{}");
+
+  materias.forEach((m, i) => {
+    const card = document.getElementById(`materia-${i}`);
+    const nombre = m.nombre;
+
+    if (!m.requiere) {
+      card.classList.remove("locked");
+      card.classList.add("unlocked");
+      return;
+    }
+
+    let habilitada = true;
+    for (let j = 0; j < m.requiere.length; j++) {
+      const requerida = m.requiere[j];
+      const tipo = m.tipo[j];
+      const estado = estadoGuardado[requerida];
+
+      if (tipo === "aprobada" && estado !== "aprobada") habilitada = false;
+      if (tipo === "regularizada" && estado !== "regularizada" && estado !== "aprobada") habilitada = false;
+    }
+
+    if (habilitada) {
+      card.classList.remove("locked");
+      card.classList.add("unlocked");
+    } else {
+      card.classList.remove("unlocked");
+      card.classList.add("locked");
+    }
   });
+}
 
   materias.forEach((m, i) => {
     const card = document.getElementById(`materia-${i}`);
