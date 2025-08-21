@@ -2,127 +2,82 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Para mi pauu </title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>FNAF - Foxy 🦊</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #FFF1B5, #FFE29A); /* colores pompompurinescos */
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 60px 20px;
-      color: #5c3a21; /* marrón chocolate */
-      position: relative; /* para que los absolute queden dentro */
-      overflow-x: hidden;
-    }
-
-    /* Imágenes estáticas en esquinas */
-    #pompompurin1 {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 120px;
-      height: auto;
-      z-index: 1;
-    }
-
-    #pompompurin2 {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      width: 120px;
-      height: auto;
-      z-index: 1;
+      font-family: 'Press Start 2P', cursive;
+      background: #000 url('imagenes/fnaf_bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ff3b3b;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2rem;
+      text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
       margin-bottom: 20px;
-      background: linear-gradient(90deg, #FFD93D, #FFC700); /* colores amarillos */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: pulse 1.5s infinite;
-      z-index: 2;
-      position: relative;
     }
 
-    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+    p {
+      font-size: 0.9rem;
+      text-shadow: 0 0 5px #f33;
+    }
 
-    p { font-size: 1.2rem; margin-bottom: 40px; z-index: 2; position: relative; }
+    a {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 15px 25px;
+      background: #8b0000;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px #ff0000;
+    }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
+    a:hover { 
+      background: #ff4444; 
+      box-shadow: 0 0 20px #ff0000;
+    }
+
+    #foxy-screamer {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      max-width: 1000px;
-      z-index: 2;
-      position: relative;
-    }
-
-    .card {
-      background: #fff3bf; /* amarillo pastel suave */
-      border-radius: 20px;
-      padding: 25px;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    }
-
-    .card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.25);
-    }
-
-    .card img {
-      width: 100%;
-      max-height: 160px;
-      object-fit: contain;
-      margin-bottom: 15px;
-      border-radius: 15px;
-    }
-
-    .card h2 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #d17c00;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2.2rem; }
-      .card h2 { font-size: 1.2rem; }
-      #pompompurin1, #pompompurin2 { width: 90px; }
+      height: 100%;
+      object-fit: cover;
+      z-index: 9999;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <img id="pompompurin1" src="imagenes/pompompurin1.png" alt="Pompompurin esquina superior derecha">
-  <img id="pompompurin2" src="imagenes/pompompurin2.png" alt="Pompompurin esquina inferior izquierda">
-  <h1>Para mi pauuuu</h1>
-  <p>te amo mucho mi pausin, espero que este regalo te suba un poco el ánimo. En realidad esta era mi idea para el regalo de aniversario, pero creo que lo necesitas más ahora (ahora tendré que usar todo el poder de mi imaginacion para un regalo que supere este 😢). Espero que con esto sientas todo el amor que te tengo desde que te conocí y que aumenta cada día, cada vez que veo una foto tuya, escucho tu voz o leo tus mensajes. TE AMODORO PAUSITOOOOO</p>
+  <h1>menudo screamer chavaaal</h1>
+  <p>No te preocupes bebi, foxy no puede acanzarte😜 lo siento por ese screamer, era un amigo a mi broma. Te amo pau espero que eso lo tomes como indirecta para que algun dia nos pasemos toda la saga de fnaf juntos mientras te cuento el lore porque para entender ellore de fnaf hay que tomar al juego como lo que es ¿terror? sí, pero sobre todo: ciencia ficción. (bonnie el mejor pj btw)</p>
+  <a href="index.html">⬅️ Volver con Pompompurin</a>
 
-  <div class="grid">
-    <div class="card" onclick="location.href='persona.html'">
-      <img src="imagenes/persona.png" alt="Persona">
-      <h2>person en español ajjj</h2>
-    </div>
-    <div class="card" onclick="location.href='gatitos.html'">
-      <img src="imagenes/gatito1.gif" alt="Gatitos">
-      <h2>miau</h2>
-    </div>
-    <div class="card" onclick="location.href='fnaf.html'">
-      <img src="imagenes/foxy.png" alt="Foxy">
-      <h2>aur aur aurauraur</h2>
-    </div>
-    <div class="card" onclick="location.href='mapaches.html'">
-      <img src="imagenes/mapache.png" alt="Mapaches">
-      <h2>vos</h2>
-    </div>
-  </div>
+  <video id="foxy-screamer" autoplay muted playsinline>
+    <source src="imagenes/foxy_screamer.mp4" type="video/mp4">
+  </video>
+
+  <script>
+    window.onload = function() {
+      const foxy = document.getElementById('foxy-screamer');
+      foxy.style.display = 'block';
+      foxy.muted = false; // para que se escuche después de cargar
+      foxy.play();
+
+      foxy.onended = () => {
+        foxy.style.display = 'none';
+      };
+    };
+  </script>
 </body>
 </html>
