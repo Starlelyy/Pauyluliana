@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>FNAF - Foxy 🦊</title>
-  <!-- Fuente estilo retro arcade -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     body {
@@ -47,7 +46,6 @@
       box-shadow: 0 0 20px #ff0000;
     }
 
-    /* Screamer de Foxy con video */
     #foxy-screamer {
       position: fixed;
       top: 0;
@@ -61,11 +59,10 @@
   </style>
 </head>
 <body>
-  <h1>⚡ menudo screamer chavaaal</h1>
+  <h1>menudo screamer chavaaal</h1>
   <p>No te preocupes bebi, foxy no puede acanzarte😜 lo siento por ese screamer, era un amigo a mi broma. Te amo pau espero que eso lo tomes como indirecta para que algun dia nos pasemos toda la saga de fnaf juntos mientras te cuento el lore porque para entender ellore de fnaf hay que tomar al juego como lo que es ¿terror? sí, pero sobre todo: ciencia ficción. (bonnie el mejor pj btw) </p>
   <a href="index.html">⬅️ Volver con Pompompurin</a>
 
-  <!-- Video del screamer -->
   <video id="foxy-screamer" src="imagenes/foxy_screamer.mp4"></video>
 
   <script>
@@ -74,7 +71,6 @@
       foxy.style.display = 'block';
       foxy.play();
 
-      // Quitar screamer cuando el video termine
       foxy.onended = () => {
         foxy.style.display = 'none';
       };
