@@ -39,6 +39,8 @@
       font-weight: bold;
       transition: all 0.3s ease;
       box-shadow: 0 0 10px #ff0000;
+      position: relative;
+      z-index: 1; /* 👈 asegura que quede por encima cuando el video desaparezca */
     }
 
     a:hover { 
@@ -54,28 +56,25 @@
       height: 100%;
       object-fit: cover;
       z-index: 9999;
-      display: none;
+      display: none; /* 👈 escondido hasta que arranque */
     }
   </style>
 </head>
 <body>
   <h1>menudo screamer chavaaal</h1>
-  <p>No te preocupes bebi, foxy no puede alcanzarte 😜 ...</p>
+  <p>No te preocupes bebi, foxy no puede acanzarte😜 lo siento por ese screamer, era un amigo a mi broma. Te amo pau espero que eso lo tomes como indirecta para que algun dia nos pasemos toda la saga de fnaf juntos mientras te cuento el lore porque para entender ellore de fnaf hay que tomar al juego como lo que es ¿terror? sí, pero sobre todo: ciencia ficción. (bonnie el mejor pj btw)</p>
   <a href="index.html">⬅️ Volver con Pompompurin</a>
 
-  <video id="foxy-screamer" autoplay muted playsinline>
-    <source src="imagenes/foxy_screamer.mp4" type="video/mp4">
-  </video>
+  <video id="foxy-screamer" src="imagenes/foxy_screamer.mp4"></video>
 
   <script>
     window.onload = function() {
       const foxy = document.getElementById('foxy-screamer');
       foxy.style.display = 'block';
-      foxy.muted = false; // para que se escuche después de cargar
       foxy.play();
 
       foxy.onended = () => {
-        foxy.style.display = 'none';
+        foxy.style.display = 'none'; // 👈 cuando termina desaparece
       };
     };
   </script>
