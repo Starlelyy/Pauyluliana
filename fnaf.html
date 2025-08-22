@@ -15,6 +15,7 @@
       margin: 0;
       height: 100vh;
       overflow: hidden;
+      position: relative;
     }
 
     h1 {
@@ -40,7 +41,7 @@
       transition: all 0.3s ease;
       box-shadow: 0 0 10px #ff0000;
       position: relative;
-      z-index: 1; /* 👈 asegura que quede por encima cuando el video desaparezca */
+      z-index: 10001; /* 👈 encima del video */
     }
 
     a:hover { 
@@ -55,26 +56,32 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: 9999;
-      display: none; /* 👈 escondido hasta que arranque */
+      z-index: 10000; /* 👈 el video debajo del botón */
+      display: none;
     }
   </style>
 </head>
 <body>
   <h1>menudo screamer chavaaal</h1>
-  <p>No te preocupes bebi, foxy no puede acanzarte😜 lo siento por ese screamer, era un amigo a mi broma. Te amo pau espero que eso lo tomes como indirecta para que algun dia nos pasemos toda la saga de fnaf juntos mientras te cuento el lore porque para entender ellore de fnaf hay que tomar al juego como lo que es ¿terror? sí, pero sobre todo: ciencia ficción. (bonnie el mejor pj btw)</p>
+  <p>No te preocupes bebi, foxy no puede alcanzarte 😜 lo siento por ese screamer, era un amigo a mi broma. 
+     Te amo Pau 💖 espero que eso lo tomes como indirecta para que algún día nos pasemos toda la saga de FNAF juntos. 
+     (Bonnie el mejor pj btw)</p>
+
   <a href="index.html">⬅️ Volver con Pompompurin</a>
 
+  <!-- Ojo: el video debe estar en la carpeta "imagenes" -->
   <video id="foxy-screamer" src="imagenes/foxy_screamer.mp4"></video>
 
   <script>
     window.onload = function() {
       const foxy = document.getElementById('foxy-screamer');
       foxy.style.display = 'block';
-      foxy.play();
+      foxy.play().catch(err => {
+        console.log("⚠️ El navegador bloqueó la reproducción automática:", err);
+      });
 
       foxy.onended = () => {
-        foxy.style.display = 'none'; // 👈 cuando termina desaparece
+        foxy.style.display = 'none'; // 👈 desaparece cuando termina
       };
     };
   </script>
