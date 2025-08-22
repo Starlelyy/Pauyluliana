@@ -69,15 +69,15 @@
 
   <a href="index.html">⬅️ Volver con Pompompurin</a>
 
-  <video id="foxy-screamer" src="imagenes/foxy_screamer.mp4"></video>
+  <video id="foxy-screamer" src="videos/foxy_screamer.mp4"></video>
 
   <script>
     window.onload = function() {
       const foxy = document.getElementById('foxy-screamer');
       foxy.style.display = 'block';
-      foxy.muted = true;   // empieza muteado
+      foxy.muted = true; 
       foxy.play().then(() => {
-        // después de 200ms lo activamos con sonido
+        
         setTimeout(() => { 
           foxy.muted = false; 
         }, 200);
