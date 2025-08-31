@@ -5,24 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🐱 Página Gatuna 🐾</title>
   
-  <!-- Fuente gatuna desde Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+  <!-- Fuente gatuna que soporta tildes y ñ -->
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: 'Cute Font', cursive;
-      background: url('https://i.imgur.com/wmrO2dV.png'); /* huellitas gatunas */
-      background-size: 100px 100px;
-      background-color: #fffafc;
-      animation: moverFondo 20s linear infinite;
+      font-family: 'Gloria Hallelujah', cursive;
+      background: url('imagenes/fondo-gatuno.jpg'); /* O huellitas.png si preferís patrón */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       color: #444;
       text-align: center;
-    }
-
-    @keyframes moverFondo {
-      from { background-position: 0 0; }
-      to { background-position: 100px 100px; }
     }
 
     h1 {
@@ -46,6 +41,7 @@
       width: 140px;
       height: auto;
       z-index: 999;
+      animation: bailar 1s infinite alternate;
     }
 
     .gatito.izq {
@@ -58,6 +54,11 @@
       right: 10px;
     }
 
+    @keyframes bailar {
+      from { transform: rotate(-10deg) scale(1); }
+      to { transform: rotate(10deg) scale(1.1); }
+    }
+
     .huellitas {
       font-size: 2.5em;
       margin-top: 20px;
@@ -66,7 +67,7 @@
 </head>
 <body>
   <h1>🐾 BAILA PAU BAILAAA 🐾</h1>
-  <p>ola miau solo queria decirte que eres muy hermoso y lindo y bonito y guapo y apuesto y majestuoso y radiante y encantador y atractivo y seductor y precioso y adorable y brillante y resplandeciente y preciosote y tierno y dulce y atento y cariñoso y protector y caballero y generoso y noble y sincero y leal y fiel y confiable y comprensivo y paciente y sabio e inteligente y creativo e inspirador y brillante y simpático y apasionado y carismático y admirable y fuerte y valiente y decidido y perseverante y dedicado y auténtico y especial y único y mágico y luminoso y atractivo y amable y divertido y juguetón y soñador y romántico y delicado y bondadoso y sensible y espiritual y vibrante y armonioso e inefable y fascinante e irresistible y glorioso y espectacular y sublime y celestial🐱</p>
+  <p>Hola miau, solo quería decirte que eres muy hermoso y lindo y bonito y guapo y apuesto y majestuoso y radiante y encantador y atractivo y seductor y precioso y adorable y brillante y resplandeciente y preciosote y tierno y dulce y atento y cariñoso y protector y caballero y generoso y noble y sincero y leal y fiel y confiable y comprensivo y paciente y sabio e inteligente y creativo e inspirador y brillante y simpático y apasionado y carismático y admirable y fuerte y valiente y decidido y perseverante y dedicado y auténtico y especial y único y mágico y luminoso y atractivo y amable y divertido y juguetón y soñador y romántico y delicado y bondadoso y sensible y espiritual y vibrante y armonioso e inefable y fascinante e irresistible y glorioso y espectacular y sublime y celestial 🐱</p>
   <div class="huellitas">🐾 🐾 🐾 🐾 🐾</div>
   
   <img src="imagenes/gatito-baila.gif" alt="Gatito bailando" class="gatito izq">
