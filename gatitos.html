@@ -4,39 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🐱 Página Gatuna 🐾</title>
+  
+  <!-- Fuente gatuna desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: "Comic Sans MS", cursive, sans-serif;
-      background: linear-gradient(135deg, #ffe6f0, #fff8e1, #e6f7ff);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      font-family: 'Cute Font', cursive;
+      background: url('https://i.imgur.com/wmrO2dV.png'); /* huellitas gatunas */
+      background-size: 100px 100px;
+      background-color: #fffafc;
+      animation: moverFondo 20s linear infinite;
       color: #444;
       text-align: center;
     }
 
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    @keyframes moverFondo {
+      from { background-position: 0 0; }
+      to { background-position: 100px 100px; }
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 4em;
       margin-top: 40px;
-      color: #ff6699;
+      color: #ff66b2;
       text-shadow: 2px 2px #fff;
     }
 
     p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: 10px auto;
+      font-size: 1.8em;
+      max-width: 700px;
+      margin: 20px auto;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 15px;
+      padding: 15px;
     }
 
     .gatito {
       position: fixed;
-      width: 120px;
+      width: 140px;
       height: auto;
       z-index: 999;
     }
@@ -52,7 +59,7 @@
     }
 
     .huellitas {
-      font-size: 2em;
+      font-size: 2.5em;
       margin-top: 20px;
     }
   </style>
