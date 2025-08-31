@@ -2,38 +2,70 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Gatitos 🐱</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐱 Página Gatuna 🐾</title>
   <style>
     body {
-      background: #ffe6f0;
-      color: #333;
+      margin: 0;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #fff8e1, #e6f7ff);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #444;
       text-align: center;
-      padding: 50px;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
     }
-    h1 { font-size: 3em; color: #d6336c; }
-    .gif {
-      width: 250px;
-      border-radius: 20px;
-      margin: 20px;
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
-    a {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 25px;
-      background: #ff80ab;
-      color: white;
-      border-radius: 15px;
-      text-decoration: none;
-      font-weight: bold;
+
+    h1 {
+      font-size: 3em;
+      margin-top: 40px;
+      color: #ff6699;
+      text-shadow: 2px 2px #fff;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+
+    /* Gatitos bailando */
+    .gatito {
+      position: fixed;
+      width: 120px;
+      height: auto;
+      z-index: 999;
+    }
+
+    .gatito.izq {
+      bottom: 10px;
+      left: 10px;
+    }
+
+    .gatito.der {
+      top: 10px;
+      right: 10px;
+    }
+
+    /* Decoración con huellitas */
+    .huellitas {
+      font-size: 2em;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Los gatitos te mandan amor 🐾💕</h1>
-  <img class="gif" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Gatito">
-  <img class="gif" src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif" alt="Gatito2">
-  <br>
-  <a href="index.html">Volver con Pompompurin 🐶</a>
+  <h1>🐾 BAILA PAU BAILAAA 🐾</h1>
+  <p>ola miau solo queria decirte que eres muy hermoso y lindo y bonito y guapo y apuesto y majestuoso y radiante y encantador y atractivo y seductor y precioso y adorable y brillante y resplandeciente y preciosote y tierno y dulce y atento y cariñoso y protector y caballero y generoso y noble y sincero y leal y fiel y confiable y comprensivo y paciente y sabio e inteligente y creativo e inspirador y brillante y simpático y apasionado y carismático y admirable y fuerte y valiente y decidido y perseverante y dedicado y auténtico y especial y único y mágico y luminoso y atractivo y amable y divertido y juguetón y soñador y romántico y delicado y bondadoso y sensible y espiritual y vibrante y armonioso e inefable y fascinante e irresistible y glorioso y espectacular y sublime y celestial🐱</p>
+  <div class="huellitas">🐾 🐾 🐾 🐾 🐾</div>
+
+  <!-- Gatitos bailando (desde la carpeta "imagenes") -->
+  <img src="imagenes/gatito-baila.gif" alt="Gatito bailando" class="gatito izq">
+  <img src="imagenes/gatito-baila2.gif" alt="Gatito bailando" class="gatito der">
 </body>
 </html>
