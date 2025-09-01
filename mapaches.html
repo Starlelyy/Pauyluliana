@@ -2,71 +2,100 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Mapaches Traviesos 🦝</title>
+<title>Raccoon Madness 🦝</title>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet">
 <style>
   body {
+    margin: 0;
+    padding: 0;
     font-family: 'Fira Sans Extra Condensed', sans-serif;
-    background: url('imagenes/mapache-bg.jpg') no-repeat center center fixed;
+    background: url('imagenes/raccoon-bg.jpg') no-repeat center center fixed;
     background-size: cover;
     color: white;
-    text-align: center;
     overflow: hidden;
+    height: 100vh;
   }
+
   h1 {
-    margin-top: 30px;
-    font-size: 3em;
-    text-shadow: 2px 2px black;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 4em;
     color: #ffcc00;
+    text-shadow: 3px 3px black;
+    transform: rotate(-5deg);
   }
+
   .mapache {
     position: absolute;
-    width: 120px;
+    width: 100px;
     cursor: pointer;
     transition: transform 0.3s;
   }
+
   .mapache:hover {
-    transform: scale(1.2) rotate(10deg);
+    transform: scale(1.3) rotate(15deg);
   }
+
   #mensaje {
-    margin-top: 20px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 1.5em;
     text-shadow: 1px 1px black;
   }
 </style>
 </head>
 <body>
-<h1>¡Cuidado! Los mapaches están sueltos 🦝</h1>
 
-<img src="imagenes/mapache1.png" class="mapache" id="mapache1" style="top:50px; left:100px;">
-<img src="imagenes/mapache2.png" class="mapache" id="mapache2" style="top:200px; left:400px;">
+<h1>¡CUIDADO! LOS RACCOONES ESTÁN SUELTOS 🦝</h1>
+
+<!-- Aquí agregas tus propias imágenes de mapaches desde la carpeta "imagenes" -->
+<img src="imagenes/mapache1.png" class="mapache" id="mapache1">
+<img src="imagenes/mapache2.png" class="mapache" id="mapache2">
+<img src="imagenes/mapache3.png" class="mapache" id="mapache3">
 
 <div id="mensaje"></div>
 
 <script>
-const mapache1 = document.getElementById("mapache1");
-const mapache2 = document.getElementById("mapache2");
-const mensaje = document.getElementById("mensaje");
+const mapaches = [
+  document.getElementById('mapache1'),
+  document.getElementById('mapache2'),
+  document.getElementById('mapache3')
+];
 
-// Al hacer clic, los mapaches muestran un mensaje travieso
-mapache1.addEventListener('click', () => {
-  mensaje.textContent = "¡Te robé una galleta! 🍪";
-});
-mapache2.addEventListener('click', () => {
-  mensaje.textContent = "¡Ups! Me escondí detrás de un arbusto 🌿";
-});
+const mensajes = [
+  "¡Te robé una galleta! 🍪",
+  "¡Ups, me escondí detrás del arbusto! 🌿",
+  "¡Mira lo que encontré! 💎",
+  "¡No me atrapes! 😼",
+  "¡Te hice travesura! 😂"
+];
 
-// Animación simple: los mapaches se mueven de forma aleatoria
+// Función para mover los mapaches aleatoriamente
 function moverMapache(mapache) {
-  const x = Math.random() * (window.innerWidth - 150);
-  const y = Math.random() * (window.innerHeight - 150);
+  const x = Math.random() * (window.innerWidth - 120);
+  const y = Math.random() * (window.innerHeight - 120);
   mapache.style.left = x + 'px';
   mapache.style.top = y + 'px';
 }
+
+// Mover todos los mapaches cada 2.5 segundos
 setInterval(() => {
-  moverMapache(mapache1);
-  moverMapache(mapache2);
-}, 3000);
+  mapaches.forEach(m => moverMapache(m));
+}, 2500);
+
+// Mensaje aleatorio al hacer clic
+mapaches.forEach(m => {
+  m.addEventListener('click', () => {
+    const msg = mensajes[Math.floor(Math.random() * mensajes.length)];
+    document.getElementById('mensaje').textContent = msg;
+  });
+});
+
+// Posicionar mapaches inicialmente
+mapaches.forEach(m => moverMapache(m));
 </script>
+
 </body>
 </html>
