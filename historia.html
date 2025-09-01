@@ -52,10 +52,29 @@
       color: white;
       background: #ff003c;
     }
+
+    /* Botón de música */
+    #musica-btn {
+      display: inline-block;
+      margin: 20px;
+      padding: 10px 25px;
+      background: #ff003c;
+      color: white;
+      border: 3px solid black;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2em;
+      text-shadow: 1px 1px black;
+    }
+    #musica-btn:hover {
+      background: crimson;
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
-  <h1>TOP 758 CURIOCIDADES DE PERSONA QUE APUESTO A Q NO SAVIAS (suscriviros)</h1>
+  <h1>TOP 758 CURIOSIDADES DE PERSONA QUE APUESTO A Q NO SABÍAS (suscríbanse)</h1>
+
   <ul>
     <li>La serie Persona nació como un spin-off del universo Shin Megami Tensei.</li>
     <li>Las mecánicas sociales tipo “Social Links” debutaron en Persona 3 y evolucionaron a “Confidants” en Persona 5.</li>
@@ -80,5 +99,30 @@
   </ul>
 
   <a href="index.html">⬅ Volver al Menú</a>
+
+  <!-- Botón de música -->
+  <div id="musica-btn">🎵 Música</div>
+
+  <!-- Música de fondo -->
+  <audio id="bg-music" loop>
+    <source src="musica/opening.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <script>
+    const musicBtn = document.getElementById("musica-btn");
+    const bgMusic = document.getElementById("bg-music");
+
+    // Control de música
+    musicBtn.addEventListener("click", () => {
+      if (bgMusic.paused) {
+        bgMusic.play();
+        musicBtn.textContent = "🔇 Pausar Música";
+      } else {
+        bgMusic.pause();
+        musicBtn.textContent = "🎵 Música";
+      }
+    });
+  </script>
 </body>
 </html>
