@@ -2,32 +2,80 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Persona 🎭</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Persona</title>
+
+  <!-- Fuente con vibes similares a Persona -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet">
+
   <style>
     body {
-      background: #000 url('https://i.imgur.com/8O3NHRp.png') no-repeat center/cover;
+      margin: 0;
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      background: url('imagenes/persona-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: white;
       text-align: center;
-      padding: 50px;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
     }
-    h1 { font-size: 3em; color: red; }
-    p { font-size: 1.2em; }
-    a {
+
+    h1 {
+      font-size: 5em;
+      margin-top: 50px;
+      color: #ff003c;
+      text-shadow: 4px 4px black, 6px 6px white;
+      transform: skew(-10deg, -5deg);
+    }
+
+    p {
+      font-size: 2em;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(0,0,0,0.7);
+      border: 5px solid white;
+      border-radius: 10px;
+      transform: rotate(-2deg);
+    }
+
+    /* Efecto estilo “cómic” para Persona */
+    .persona-box {
       display: inline-block;
-      margin-top: 30px;
       padding: 15px 25px;
-      background: red;
+      margin: 20px;
+      font-size: 2em;
+      background: #ff003c;
       color: white;
-      border-radius: 15px;
-      text-decoration: none;
-      font-weight: bold;
+      border: 5px solid black;
+      transform: skew(-10deg, -5deg);
+      text-shadow: 2px 2px black;
+    }
+
+    /* Animación vibrante */
+    @keyframes vibrar {
+      0% { transform: skew(-10deg, -5deg) translate(0,0); }
+      25% { transform: skew(-10deg, -5deg) translate(2px, -2px); }
+      50% { transform: skew(-10deg, -5deg) translate(-2px, 2px); }
+      75% { transform: skew(-10deg, -5deg) translate(2px, 2px); }
+      100% { transform: skew(-10deg, -5deg) translate(0,0); }
+    }
+
+    .persona-box:hover {
+      animation: vibrar 0.2s infinite;
     }
   </style>
 </head>
 <body>
-  <h1>Persona te acompaña, mi amor ❤️</h1>
-  <p>Como en el juego, juntos somos invencibles 🎮✨</p>
-  <a href="index.html">Volver con Pompompurin 🐶</a>
+  <h1>FOR REAL?????</h1>
+  <p>Bienvenido mi pau, aki tienes tu pagina d persona q obvio amas mas q a tu propia novia 🙄 pero eqis, espero t guste y n creas q por estoaceptaré q juguemos todos los persona pq naonao, de milagro nos terminaremos el 5. En fin bebi t amo sabes q lo q t hace feliz a vos, me hace feliz a mi, excepto si esa felicidad es serme infiel 😡</p>
+  <div class="persona-box">⚡ Start Game</div>
+  <div class="persona-box">📖 Historia</div>
+  <div class="persona-box">🎵 Música</div>
+
+  <!-- Música de fondo -->
+  <audio id="bg-music" autoplay loop>
+    <source src="musica/opening.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
 </body>
 </html>
