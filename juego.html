@@ -42,32 +42,61 @@
       from {opacity: 0; transform: translateY(30px);}
       to {opacity: 1; transform: translateY(0);}
     }
+    #musica-btn {
+      display: inline-block;
+      margin: 20px;
+      padding: 10px 25px;
+      background: #ff003c;
+      color: white;
+      border: 3px solid black;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2em;
+      text-shadow: 1px 1px black;
+    }
+    #musica-btn:hover {
+      background: crimson;
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
+
   <div id="historia"></div>
+
+  <!-- Botón para música -->
+  <div id="musica-btn">🎵 Música</div>
+
+  <!-- Música de fondo -->
+  <audio id="bg-music" loop>
+    <source src="musica/opening.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
 
   <script>
     const historia = document.getElementById("historia");
+    const musicBtn = document.getElementById("musica-btn");
+    const bgMusic = document.getElementById("bg-music");
 
+    // Escenas
     const escenas = {
       menu: {
-        texto: "Bienvenido paupau 😈. En este guego tenrás que tomar decisiones y mas te vale que las pienses muyyyyy bien pq una respuesta erronea puede generar que me mate en frente de tu casa. Haz clic en 'Comenzar' para iniciar.",
+        texto: "Bienvenido paupau 😈. En este guego tendrás que tomar decisiones y mas te vale que las pienses muyyyyy bien pq una respuesta erronea puede generar que me mate en frente de tu casa. Haz clic en 'Comenzar' para iniciar.",
         opciones: [
           { texto: "Comenzar", destino: "inicio" }
         ]
       },
       inicio: {
-        texto: "Estás en el mundo de persona 5 y futaba sakura te pide que la ayudes en algo (no se en q todavia ni se qn es). ¿Qué hacés?",
+        texto: "Estás en el mundo de persona 5 y futaba sakura te pide que la ayudes en algo (no sé en qué todavía ni sé quién es). ¿Qué hacés?",
         opciones: [
           { texto: "La ayudo, no tiene nada de malo uwu", destino: "ayudar" },
-          { texto: "le dices NO SORRA TENGO NOBIA😳", destino: "novia" }
+          { texto: "le dices NO SORRA TENGO NOVIA😳", destino: "novia" }
         ]
       },
       ayudar: {
-        texto: "Ella sonrie y te agarra de la mano para llevarte a un lugar. ¿Querés decirle algo?",
+        texto: "Ella sonríe y te agarra de la mano para llevarte a un lugar. ¿Querés decirle algo?",
         opciones: [
-          { texto: "Decir 'oyeme fea tengo novia q haces no m tokes' ", destino: "fea" },
+          { texto: "Decir 'oyeme fea tengo novia q haces no me tokes' ", destino: "fea" },
           { texto: "Quedarte en silencio...", destino: "silencio" }
         ]
       },
@@ -100,18 +129,18 @@
         ]
       },
       correr: {
-        texto: "Te vas corriendo y buscas a luliana pelona.",
+        texto: "Te vas corriendo y buscas a Luliana Pelona.",
         opciones: [
           { texto: "Contarle la verdad y pedirle perdón", destino: "fin" },
           { texto: "Mentirle y ocultarle la verdad", destino: "escena_extra2" }
         ]
       },
       escena_extra1: {
-        texto: "La matas y te llevan preso pero al menos luliana pelona está orgullosa y el jajas te acompañará",
+        texto: "La matas y te llevan preso pero al menos Luliana Pelona está orgullosa y el jajas te acompañará",
         opciones: [
           { texto: "Reiniciar la historia 🔄", destino: "menu" }
         ]
- },
+      },
       escena_extra2: {
         texto: "Luliana pelona se entera de todo y se mata en frente de tu casa",
         opciones: [
@@ -126,6 +155,7 @@
       }
     };
 
+    // Función para mostrar escenas
     function mostrarEscena(nombre) {
       const escena = escenas[nombre];
       historia.innerHTML = `<p>${escena.texto}</p>`;
@@ -138,7 +168,18 @@
       });
     }
 
-    // Empezar desde el menú inicial
+    // Botón para controlar música
+    musicBtn.addEventListener("click", () => {
+      if (bgMusic.paused) {
+        bgMusic.play();
+        musicBtn.textContent = "🔇 Pausar Música";
+      } else {
+        bgMusic.pause();
+        musicBtn.textContent = "🎵 Música";
+      }
+    });
+
+    // Comenzar desde el menú
     mostrarEscena("menu");
   </script>
 </body>
