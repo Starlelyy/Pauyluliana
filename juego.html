@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>TU DESIDES😈</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background: url("imagenes/persona-bg.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+    #historia {
+      background: rgba(0,0,0,0.8);
+      padding: 20px;
+      border: 3px solid white;
+      border-radius: 10px;
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.3em;
+      line-height: 1.5em;
+      animation: aparecer 0.5s ease forwards;
+    }
+    .opcion {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      border: 2px solid white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .opcion:hover {
+      background: crimson;
+      transform: scale(1.1);
+    }
+    @keyframes aparecer {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div id="historia"></div>
+
+  <script>
+    const historia = document.getElementById("historia");
+
+    // Aquí se guarda cada "escena"
+    const escenas = {
+      inicio: {
+        texto: "Estás con él en un atardecer. Se miran a los ojos y todo se detiene alrededor. ¿Qué hacés?",
+        opciones: [
+          { texto: "Tomar su mano 💕", destino: "mano" },
+          { texto: "Mirar hacia otro lado 😳", destino: "timidez" }
+        ]
+      },
+      mano: {
+        texto: "Él sonríe y te aprieta suavemente la mano. El corazón late rápido. ¿Querés decirle algo?",
+        opciones: [
+          { texto: "Decir 'te quiero' 💖", destino: "amor" },
+          { texto: "Quedarte en silencio...", destino: "silencio" }
+        ]
+      },
+      timidez: {
+        texto: "Él se ríe bajito y te levanta la barbilla para que lo mires. El momento se siente especial.",
+        opciones: [
+          { texto: "Besarlo 😘", destino: "beso" },
+          { texto: "Seguir callada...", destino: "fin" }
+        ]
+      },
+      amor: {
+        texto: "Él te mira sorprendido... y luego te besa suavemente. Es el inicio de algo mágico ✨",
+        opciones: []
+      },
+      silencio: {
+        texto: "Aunque no dijiste nada, él entiende con tu mirada lo que sentís. El silencio lo dice todo.",
+        opciones: []
+      },
+      beso: {
+        texto: "El beso es dulce y lleno de nervios. Ambos saben que nunca van a olvidar este instante.",
+        opciones: []
+      },
+      fin: {
+        texto: "El momento pasa, pero queda la sensación de que algo quedó pendiente...",
+        opciones: []
+      }
+    };
+
+    // Mostrar escena
+    function mostrarEscena(nombre) {
+      const escena = escenas[nombre];
+      historia.innerHTML = `<p>${escena.texto}</p>`;
+      escena.opciones.forEach(op => {
+        const boton = document.createElement("div");
+        boton.className = "opcion";
+        boton.textContent = op.texto;
+        boton.onclick = () => mostrarEscena(op.destino);
+        historia.appendChild(boton);
+      });
+    }
+
+    // Empezar
+    mostrarEscena("inicio");
+  </script>
+</body>
+</html>
