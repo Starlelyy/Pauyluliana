@@ -1,150 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Racoon Virtual 🦝</title>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet">
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Fira Sans Extra Condensed', sans-serif;
-    background: url('imagenes/raccoon-bg.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-    text-align: center;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+  <meta charset="UTF-8">
+  <title>Raccoon 🦝</title>
+  <!-- Fuente estilo Persona -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      background: url('imagenes/mapache-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-  h1 {
-    font-size: 3em;
-    color: #ffcc00;
-    text-shadow: 2px 2px black;
-    margin-bottom: 30px;
-    transform: rotate(-3deg);
-  }
+    h1 {
+      font-size: 4em;
+      color: #ffcc00;
+      text-shadow: 3px 3px black;
+      margin-bottom: 40px;
+      transform: rotate(-5deg);
+    }
 
-  #racoon {
-    width: 200px;
-    margin: 20px;
-    transition: transform 0.3s;
-  }
+    .boton {
+      padding: 15px 30px;
+      font-size: 1.8em;
+      background: #ff9933;
+      color: white;
+      border: 3px solid black;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      text-align: center;
+    }
 
-  .barra {
-    width: 300px;
-    height: 25px;
-    border: 2px solid white;
-    border-radius: 10px;
-    margin: 10px auto;
-    overflow: hidden;
-  }
-
-  .relleno {
-    height: 100%;
-    background-color: #ff9933;
-    width: 50%;
-    transition: width 0.5s;
-  }
-
-  .boton {
-    font-size: 1.2em;
-    padding: 10px 20px;
-    margin: 10px;
-    background: #ff9933;
-    border: 2px solid black;
-    border-radius: 10px;
-    cursor: pointer;
-    text-shadow: 1px 1px black;
-    transition: transform 0.3s, background 0.3s;
-  }
-
-  .boton:hover {
-    transform: scale(1.1);
-    background: #ffaa66;
-  }
-
-  #mensaje {
-    margin-top: 20px;
-    font-size: 1.2em;
-    min-height: 1.5em;
-  }
-</style>
+    .boton:hover {
+      background: #ffaa66;
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
-
-<h1>Tu Racoon Virtual 🦝</h1>
-<img src="imagenes/mapache1.jpg" id="racoon">
-
-<div>
-  <button class="boton" onclick="accion('alimentar')">🍎 Alimentar</button>
-  <button class="boton" onclick="accion('acariciar')">🤗 Acariciar</button>
-  <button class="boton" onclick="accion('dormir')">💤 Dormir</button>
-</div>
-
-<div id="mensaje"></div>
-
-<div class="barra">
-  <div id="hambre" class="relleno" style="background-color:#ff4d4d;"></div>
-</div>
-<p>Hambre</p>
-
-<div class="barra">
-  <div id="felicidad" class="relleno" style="background-color:#4dff4d;"></div>
-</div>
-<p>Felicidad</p>
-
-<div class="barra">
-  <div id="sueño" class="relleno" style="background-color:#4d4dff;"></div>
-</div>
-<p>Sueño</p>
-
-<script>
-let stats = {
-  hambre: 50,
-  felicidad: 50,
-  sueño: 50
-};
-
-function actualizarBarra() {
-  document.getElementById('hambre').style.width = stats.hambre + '%';
-  document.getElementById('felicidad').style.width = stats.felicidad + '%';
-  document.getElementById('sueño').style.width = stats.sueño + '%';
-}
-
-function accion(tipo) {
-  const mensaje = document.getElementById('mensaje');
-  const racoon = document.getElementById('racoon');
-
-  if(tipo === 'alimentar') {
-    stats.hambre = Math.min(stats.hambre + 20, 100);
-    stats.felicidad = Math.min(stats.felicidad + 10, 100);
-    mensaje.textContent = "Yum! 🦝 Tu racoon está feliz y lleno!";
-    racoon.style.transform = "scale(1.2)";
-    setTimeout(()=>{ racoon.style.transform="scale(1)"; }, 300);
-  } else if(tipo === 'acariciar') {
-    stats.felicidad = Math.min(stats.felicidad + 20, 100);
-    stats.sueño = Math.min(stats.sueño + 5, 100);
-    mensaje.textContent = "Mmm... ronronea 🥰 ¡Le encanta que lo acaricies!";
-    racoon.style.transform = "rotate(-10deg) scale(1.1)";
-    setTimeout(()=>{ racoon.style.transform="rotate(0deg) scale(1)"; }, 300);
-  } else if(tipo === 'dormir') {
-    stats.sueño = Math.min(stats.sueño + 30, 100);
-    stats.felicidad = Math.min(stats.felicidad + 5, 100);
-    mensaje.textContent = "Zzz... 💤 Tu racoon está durmiendo tranquilo.";
-    racoon.style.transform = "rotate(10deg) scale(0.9)";
-    setTimeout(()=>{ racoon.style.transform="rotate(0deg) scale(1)"; }, 500);
-  }
-
-  actualizarBarra();
-}
-
-// Inicializa barras
-actualizarBarra();
-</script>
-
+  <h1>Bienvenido al mundo de los racoons 🦝</h1>
+  <p>¡Cuidá y divertite con tu racoon interactivo! Podrás alimentarlo, acariciarlo, ponerlo a dormir y más.</p>
+  <a href="racoon.html" class="boton">Ir con tu racoon 🦝</a>
 </body>
 </html>
