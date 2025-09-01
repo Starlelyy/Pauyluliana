@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Raccoon🦝</title>
+<title>Raccoon 🦝</title>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet">
 <style>
   body {
@@ -12,93 +12,56 @@
     background: url('imagenes/raccoon-bg.jpg') no-repeat center center fixed;
     background-size: cover;
     color: white;
-    overflow: hidden;
+    text-align: center;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   h1 {
-    text-align: center;
-    margin-top: 50px;
     font-size: 4em;
     color: #ffcc00;
     text-shadow: 3px 3px black;
+    margin-bottom: 50px;
     transform: rotate(-5deg);
   }
 
-  .mapache {
-    position: absolute;
-    width: 100px;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
-
-  .mapache:hover {
-    transform: scale(1.3) rotate(15deg);
-  }
-
-  #mensaje {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+  .boton {
     font-size: 1.5em;
+    padding: 15px 30px;
+    background: #ff9933;
+    border: 3px solid black;
+    border-radius: 15px;
+    cursor: pointer;
     text-shadow: 1px 1px black;
-    background: rgba(0,0,0,0.5);
-    padding: 8px 15px;
-    border-radius: 8px;
+    transition: transform 0.3s, background 0.3s;
+  }
+
+  .boton:hover {
+    transform: scale(1.1);
+    background: #ffaa66;
   }
 </style>
 </head>
 <body>
 
-<h1>CUIDADO CON LOS RACUNS PAUUUU</h1>
-
-<!-- Imágenes de mapaches con extensión .jpg -->
-<img src="imagenes/mapache1.jpg" class="mapache" id="mapache1">
-<img src="imagenes/mapache2.jpg" class="mapache" id="mapache2">
-<img src="imagenes/mapache3.jpg" class="mapache" id="mapache3">
-
-<div id="mensaje"></div>
+<h1>Bienvenido al mundo racoonesco 🦝</h1>
+<button class="boton" onclick="iniciarRacoon()">¡Ir con tu racoon!</button>
 
 <script>
-const mapaches = [
-  document.getElementById('mapache1'),
-  document.getElementById('mapache2'),
-  document.getElementById('mapache3')
-];
-
-const mensajes = [
-  "LULIANA AMA A PAU",
-  "pau negro",
-  "pau pelon",
-  "luliana ama mas a pau",
-  "lol"
-];
-
-// Función para mover los mapaches aleatoriamente
-function moverMapache(mapache) {
-  const x = Math.random() * (window.innerWidth - 120);
-  const y = Math.random() * (window.innerHeight - 120);
-  mapache.style.left = x + 'px';
-  mapache.style.top = y + 'px';
+function iniciarRacoon() {
+  // Cambiar la página al modo interactivo del racoon
+  document.body.innerHTML = `
+    <h1>Tu racoon virtual 🦝</h1>
+    <img src="imagenes/mapache1.jpg" id="racoon" style="width:200px; margin:20px;">
+    <div>
+      <button onclick="accion('alimentar')">🍎 Alimentar</button>
+      <button onclick="accion('acariciar')">🤗 Acariciar</button>
+      <button onclick="accion('dormir')">💤 Dormir</button>
+    </div>
+    <p id="resultado" style="margin-top:20px; font-size:1.2em;"></p>
+    <button onclick="location.reload()" style="margin-top:40px;">Volver</button>
+  `;
 }
-
-// Mover todos los mapaches cada 2.5 segundos
-setInterval(() => {
-  mapaches.forEach(m => moverMapache(m));
-}, 2500);
-
-// Mensaje aleatorio al hacer clic
-mapaches.forEach(m => {
-  m.addEventListener('click', () => {
-    const msg = mensajes[Math.floor(Math.random() * mensajes.length)];
-    document.getElementById('mensaje').textContent = msg;
-  });
-});
-
-// Posicionar mapaches inicialmente
-mapaches.forEach(m => moverMapache(m));
-</script>
-
-</body>
-</html>
