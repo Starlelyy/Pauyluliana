@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tu Raccoon 🦝</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    background: url('imagenes/raccoon-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 3em;
+    text-shadow: 2px 2px black;
+    margin-bottom: 20px;
+  }
+
+  #racoon {
+    width: 250px;
+    margin: 20px;
+    transition: transform 0.3s;
+  }
+
+  #racoon:hover {
+    transform: scale(1.1);
+  }
+
+  .boton {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    margin: 10px;
+    background: #ff9933;
+    color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .boton:hover {
+    background: #ffaa66;
+    transform: scale(1.1);
+  }
+
+  .barra-container {
+    width: 300px;
+    height: 25px;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px auto;
+  }
+
+  .barra {
+    height: 100%;
+    width: 50%;
+    background: #ffcc00;
+    border-radius: 10px;
+    transition: width 0.3s;
+  }
+
+  #mensaje {
+    margin-top: 20px;
+    font-size: 1.5em;
+    text-shadow: 1px 1px black;
+  }
+</style>
+</head>
+<body>
+<h1>Tu raccoon interactivo 🦝</h1>
+<img src="imagenes/racoon.png" id="racoon" alt="Raccoon">
+
+<div>
+  <button class="boton" onclick="alimentar()">🍎 Alimentar</button>
+  <button class="boton" onclick="acariciar()">🤗 Acariciar</button>
+  <button class="boton" onclick="dormir()">💤 Dormir</button>
+</div>
+
+<div class="barra-container">
+  <div class="barra" id="hambre-barra"></div>
+</div>
+<p>Hambre</p>
+
+<div class="barra-container">
+  <div class="barra" id="felicidad-barra"></div>
+</div>
+<p>Felicidad</p>
+
+<div class="barra-container">
+  <div class="barra" id="energia-barra"></div>
+</div>
+<p>Energía</p>
+
+<div id="mensaje"></div>
+
+<script>
+  let hambre = 50;
+  let felicidad = 50;
+  let energia = 50;
+
+  const barraHambre = document.getElementById("hambre-barra");
+  const barraFelicidad = document.getElementById("felicidad-barra");
+  const barraEnergia = document.getElementById("energia-barra");
+  const mensaje = document.getElementById("mensaje");
+
+  function actualizarBarras() {
+    barraHambre.style.width = hambre + "%";
+    barraFelicidad.style.width = felicidad + "%";
+    barraEnergia.style.width = energia + "%";
+  }
+
+  function alimentar() {
+    hambre = Math.min(hambre + 20, 100);
+    mensaje.textContent = "¡Yum! Tu raccoon está más lleno 😋";
+    actualizarBarras();
+  }
+
+  function acariciar() {
+    felicidad = Math.min(felicidad + 15, 100);
+    mensaje.textContent = "🤗 Tu raccoon se siente amado";
+    actualizarBarras();
+  }
+
+  function dormir() {
+    energia = Math.min(energia + 30, 100);
+    mensaje.textContent = "💤 Tu raccoon está descansando...";
+    actualizarBarras();
+  }
+
+  // Actualiza barras al inicio
+  actualizarBarras();
+</script>
+</body>
+</html>
