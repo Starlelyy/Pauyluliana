@@ -28,6 +28,8 @@
 
   #racoon {
     width: 250px;
+    height: 250px; /* Fijamos altura para que no rompa el layout */
+    object-fit: contain; /* Ajusta la imagen sin deformar */
     margin: 20px;
     transition: transform 0.3s;
   }
@@ -80,7 +82,7 @@
 </head>
 <body>
 <h1>Tu raccoon interactivo 🦝</h1>
-<img src="imagenes/mapache-normal.jpg" id="racoon" alt="Raccoon">
+<img src="imagenes/mapache.jpg" id="racoon" alt="Raccoon">
 
 <div>
   <button class="boton" onclick="alimentar()">🍎 Alimentar</button>
@@ -153,6 +155,7 @@
   }
 
   // Inicial
+  racoon.src = "imagenes/mapache.jpg"; // Imagen inicial
   actualizarBarras();
 </script>
 </body>
