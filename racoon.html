@@ -9,7 +9,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Fira Sans Extra Condensed', sans-serif;
-    background: url('imagenes/raccoon-bg.jpg') no-repeat center center fixed;
+    background: url('imagenes/mapachito-bg.jpg') no-repeat center center fixed;
     background-size: cover;
     color: white;
     text-align: center;
@@ -74,12 +74,13 @@
     margin-top: 20px;
     font-size: 1.5em;
     text-shadow: 1px 1px black;
+    color: black; /* Letras en negro */
   }
 </style>
 </head>
 <body>
 <h1>Tu raccoon interactivo 🦝</h1>
-<img src="imagenes/racoon.png" id="racoon" alt="Raccoon">
+<img src="imagenes/mapache-normal.jpg" id="racoon" alt="Raccoon">
 
 <div>
   <button class="boton" onclick="alimentar()">🍎 Alimentar</button>
@@ -113,6 +114,11 @@
   const barraFelicidad = document.getElementById("felicidad-barra");
   const barraEnergia = document.getElementById("energia-barra");
   const mensaje = document.getElementById("mensaje");
+  const racoon = document.getElementById("racoon");
+
+  const comerImgs = ["mapachecomer1.jpg","mapachecomer2.jpg","mapachecomer3.jpg"];
+  const acariciarImgs = ["mapacheacariciar1.jpg","mapacheacariciar2.jpg","mapacheacariciar3.jpg"];
+  const dormirImgs = ["mapachedormido1.jpg","mapachedormido2.jpg"];
 
   function actualizarBarras() {
     barraHambre.style.width = hambre + "%";
@@ -120,25 +126,33 @@
     barraEnergia.style.width = energia + "%";
   }
 
+  function mostrarImagenRandom(array) {
+    const index = Math.floor(Math.random() * array.length);
+    racoon.src = "imagenes/" + array[index];
+  }
+
   function alimentar() {
     hambre = Math.min(hambre + 20, 100);
+    mostrarImagenRandom(comerImgs);
     mensaje.textContent = "¡Yum! Tu raccoon está más lleno 😋";
     actualizarBarras();
   }
 
   function acariciar() {
     felicidad = Math.min(felicidad + 15, 100);
+    mostrarImagenRandom(acariciarImgs);
     mensaje.textContent = "🤗 Tu raccoon se siente amado";
     actualizarBarras();
   }
 
   function dormir() {
     energia = Math.min(energia + 30, 100);
+    mostrarImagenRandom(dormirImgs);
     mensaje.textContent = "💤 Tu raccoon está descansando...";
     actualizarBarras();
   }
 
-  // Actualiza barras al inicio
+  // Inicial
   actualizarBarras();
 </script>
 </body>
