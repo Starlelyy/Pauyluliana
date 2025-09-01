@@ -1,1 +1,104 @@
-<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Persona</title> <!-- Fuente con vibes similares a Persona --> <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet"> <style> body { margin: 0; font-family: 'Fira Sans Extra Condensed', sans-serif; background: url('imagenes/persona-bg.jpg') no-repeat center center fixed; background-size: cover; color: white; text-align: center; overflow: hidden; } h1 { font-size: 5em; margin-top: 50px; color: #ff003c; text-shadow: 4px 4px black, 6px 6px white; transform: skew(-10deg, -5deg); } p { font-size: 2em; max-width: 900px; margin: 20px auto; padding: 20px; background: rgba(0,0,0,0.7); border: 5px solid white; border-radius: 10px; transform: rotate(-2deg); } /* Botones estilo Persona */ .persona-box { display: inline-block; padding: 15px 25px; margin: 20px; font-size: 2em; background: #ff003c; color: white; border: 5px solid black; transform: skew(-10deg, -5deg); text-shadow: 2px 2px black; cursor: pointer; } /* Animación vibrante */ @keyframes vibrar { 0% { transform: skew(-10deg, -5deg) translate(0,0); } 25% { transform: skew(-10deg, -5deg) translate(2px, -2px); } 50% { transform: skew(-10deg, -5deg) translate(-2px, 2px); } 75% { transform: skew(-10deg, -5deg) translate(2px, 2px); } 100% { transform: skew(-10deg, -5deg) translate(0,0); } } .persona-box:hover { animation: vibrar 0.2s infinite; } </style> </head> <body> <h1>FOR REAL?????</h1> <p> Bienvenido mi pau, aki tienes tu pagina d persona q obvio amas mas q a tu propia novia 🙄 pero eqis, espero t guste y n creas q por esto aceptare q juguemos todos los persona pq naonao, de milagro nos terminaremos el 5. En fin bebi t amo sabes q lo q t hace feliz a vos, me hace feliz a mi, excepto si esa felicidad es serme infiel 😡 </p> <!-- Botones --> <div class="persona-box" id="start-game">⚡ Start Game</div> <div class="persona-box" id="historia">📖 Historia</div> <div class="persona-box" id="musica">🎵 Música</div> <!-- Música de fondo --> <audio id="bg-music" loop> <source src="musica/opening.mp3" type="audio/mpeg"> Tu navegador no soporta audio HTML5. </audio> <script> const musicBtn = document.getElementById("musica"); const bgMusic = document.getElementById("bg-music"); const historiaBtn = document.getElementById("historia"); const startGameBtn = document.getElementById("start-game"); // Control de música musicBtn.addEventListener("click", () => { if (bgMusic.paused) { bgMusic.play(); musicBtn.textContent = "🔇 Pausar Música"; } else { bgMusic.pause(); musicBtn.textContent = "🎵 Música"; } }); // Redirección a historia.html historiaBtn.addEventListener("click", () => { window.location.href = "historia.html"; }); // Redirección a juego.html startGameBtn.addEventListener("click", () => { window.location.href = "juego.html"; }); </script> </body> </html>
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Persona</title> 
+<!-- Fuente con vibes similares a Persona --> 
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet"> 
+<style> 
+body { 
+  margin: 0; 
+  font-family: 'Fira Sans Extra Condensed', sans-serif; 
+  background: url('imagenes/persona-bg.jpg') no-repeat center center fixed; 
+  background-size: cover; 
+  color: white; 
+  text-align: center; 
+  overflow: hidden; 
+} 
+h1 { 
+  font-size: 5em; 
+  margin-top: 50px; 
+  color: #ff003c; 
+  text-shadow: 4px 4px black, 6px 6px white; 
+  transform: skew(-10deg, -5deg); 
+} 
+p { 
+  font-size: 2em; 
+  max-width: 900px; 
+  margin: 20px auto; 
+  padding: 20px; 
+  background: rgba(0,0,0,0.7); 
+  border: 5px solid white; 
+  border-radius: 10px; 
+  transform: rotate(-2deg); 
+} 
+/* Botones estilo Persona */ 
+.persona-box { 
+  display: inline-block; 
+  padding: 15px 25px; 
+  margin: 20px; 
+  font-size: 2em; 
+  background: #ff003c; 
+  color: white; 
+  border: 5px solid black; 
+  transform: skew(-10deg, -5deg); 
+  text-shadow: 2px 2px black; 
+  cursor: pointer; 
+} 
+/* Animación vibrante */ 
+@keyframes vibrar { 
+  0% { transform: skew(-10deg, -5deg) translate(0,0); } 
+  25% { transform: skew(-10deg, -5deg) translate(2px, -2px); } 
+  50% { transform: skew(-10deg, -5deg) translate(-2px, 2px); } 
+  75% { transform: skew(-10deg, -5deg) translate(2px, 2px); } 
+  100% { transform: skew(-10deg, -5deg) translate(0,0); } 
+} 
+.persona-box:hover { 
+  animation: vibrar 0.2s infinite; 
+} 
+</style> 
+</head> 
+<body> 
+<h1>FOR REAL?????</h1> 
+<p> 
+Bienvenido mi pau, aki tienes tu pagina d persona q obvio amas mas q a tu propia novia 🙄 pero eqis, espero t guste y n creas q por esto aceptare q juguemos todos los persona pq naonao, de milagro nos terminaremos el 5. En fin bebi t amo sabes q lo q t hace feliz a vos, me hace feliz a mi, excepto si esa felicidad es serme infiel 😡 
+</p> 
+<!-- Botones --> 
+<div class="persona-box" id="start-game">⚡ Start Game</div> 
+<div class="persona-box" id="historia">📖 Historia</div> 
+<div class="persona-box" id="musica">🎵 Música</div> 
+<!-- Música de fondo --> 
+<audio id="bg-music" loop> 
+  <source src="musica/opening.mp3" type="audio/mpeg"> 
+  Tu navegador no soporta audio HTML5. 
+</audio> 
+<script> 
+const musicBtn = document.getElementById("musica"); 
+const bgMusic = document.getElementById("bg-music"); 
+const historiaBtn = document.getElementById("historia"); 
+const startGameBtn = document.getElementById("start-game"); 
+
+// Control de música 
+musicBtn.addEventListener("click", () => { 
+  if (bgMusic.paused) { 
+    bgMusic.play(); 
+    musicBtn.textContent = "🔇 Pausar Música"; 
+  } else { 
+    bgMusic.pause(); 
+    musicBtn.textContent = "🎵 Música"; 
+  } 
+}); 
+
+// Redirección a historia.html 
+historiaBtn.addEventListener("click", () => { 
+  window.location.href = "historia.html"; 
+}); 
+
+// Redirección a juego.html 
+startGameBtn.addEventListener("click", () => { 
+  window.location.href = "juego.html"; 
+}); 
+</script> 
+</body> 
+</html>
