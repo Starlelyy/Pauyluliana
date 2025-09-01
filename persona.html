@@ -1,113 +1,157 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Persona</title>
-  <!-- Fuente con vibes similares a Persona -->
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Fira Sans Extra Condensed', sans-serif;
-      background: url('imagenes/persona-bg.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-      text-align: center;
-      overflow: hidden;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Persona</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    background: url('imagenes/persona-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+  }
 
-    h1 {
-      font-size: 5em;
-      margin-top: 50px;
-      color: #ff003c;
-      text-shadow: 4px 4px black, 6px 6px white;
-      transform: skew(-10deg, -5deg);
-    }
+  h1 {
+    font-size: 5em;
+    margin-top: 50px;
+    color: #ff003c;
+    text-shadow: 4px 4px black, 6px 6px white;
+    transform: skew(-10deg, -5deg);
+  }
 
-    p {
-      font-size: 2em;
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 20px;
-      background: rgba(0,0,0,0.7);
-      border: 5px solid white;
-      border-radius: 10px;
-      transform: rotate(-2deg);
-    }
+  p {
+    font-size: 2em;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0,0,0,0.7);
+    border: 5px solid white;
+    border-radius: 10px;
+    transform: rotate(-2deg);
+  }
 
-    /* Botones estilo Persona */
-    .persona-box {
-      display: inline-block;
-      padding: 15px 25px;
-      margin: 20px;
-      font-size: 2em;
-      background: #ff003c;
-      color: white;
-      border: 5px solid black;
-      transform: skew(-10deg, -5deg);
-      text-shadow: 2px 2px black;
-      cursor: pointer;
-    }
+  .persona-box {
+    display: inline-block;
+    padding: 15px 25px;
+    margin: 20px;
+    font-size: 2em;
+    background: #ff003c;
+    color: white;
+    border: 5px solid black;
+    transform: skew(-10deg, -5deg);
+    text-shadow: 2px 2px black;
+    cursor: pointer;
+  }
 
-    /* Animación vibrante */
-    @keyframes vibrar {
-      0% { transform: skew(-10deg, -5deg) translate(0,0); }
-      25% { transform: skew(-10deg, -5deg) translate(2px, -2px); }
-      50% { transform: skew(-10deg, -5deg) translate(-2px, 2px); }
-      75% { transform: skew(-10deg, -5deg) translate(2px, 2px); }
-      100% { transform: skew(-10deg, -5deg) translate(0,0); }
-    }
+  @keyframes vibrar {
+    0% { transform: skew(-10deg, -5deg) translate(0,0); }
+    25% { transform: skew(-10deg, -5deg) translate(2px, -2px); }
+    50% { transform: skew(-10deg, -5deg) translate(-2px, 2px); }
+    75% { transform: skew(-10deg, -5deg) translate(2px, 2px); }
+    100% { transform: skew(-10deg, -5deg) translate(0,0); }
+  }
 
-    .persona-box:hover {
-      animation: vibrar 0.2s infinite;
-    }
-  </style>
+  .persona-box:hover {
+    animation: vibrar 0.2s infinite;
+  }
+
+  /* Secciones ocultas inicialmente */
+  .section {
+    display: none;
+    margin-top: 50px;
+  }
+
+  #game-section, #historia-section {
+    background: rgba(0,0,0,0.6);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 900px;
+    margin: 50px auto;
+  }
+</style>
 </head>
 <body>
-  <h1>FOR REAL?????</h1>
-  <p>
-    Bienvenido mi pau, aki tienes tu pagina d persona q obvio amas mas q a tu propia novia 🙄 pero eqis, espero t guste y n creas q por esto aceptare q juguemos todos los persona pq naonao, de milagro nos terminaremos el 5.  
-    En fin bebi t amo sabes q lo q t hace feliz a vos, me hace feliz a mi, excepto si esa felicidad es serme infiel 😡
-  </p>
 
-  <!-- Botones -->
+<h1>FOR REAL?????</h1>
+
+<!-- Menú principal -->
+<div id="menu">
   <div class="persona-box" id="start-game">⚡ Start Game</div>
   <div class="persona-box" id="historia">📖 Historia</div>
   <div class="persona-box" id="musica">🎵 Música</div>
+</div>
 
-  <!-- Música de fondo -->
-  <audio id="bg-music" loop>
-    <source src="musica/opening.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio HTML5.
-  </audio>
+<!-- Sección historia -->
+<div id="historia-section" class="section">
+  <h2>Historia de Persona</h2>
+  <p>
+   Bienvenido mi pau, aki tienes tu pagina d persona q obvio amas mas q a tu propia novia 🙄 pero eqis, espero t guste y n creas q por esto aceptare q juguemos todos los persona pq naonao, de milagro nos terminaremos el 5. En fin bebi t amo sabes q lo q t hace feliz a vos, me hace feliz a mi, excepto si esa felicidad es serme infiel 😡
+  </p>
+  <div class="persona-box" id="volver-menu1">🔙 Volver al menú</div>
+</div>
 
-  <script>
-    const musicBtn = document.getElementById("musica");
-    const bgMusic = document.getElementById("bg-music");
-    const historiaBtn = document.getElementById("historia");
-    const startGameBtn = document.getElementById("start-game");
+<!-- Sección juego -->
+<div id="game-section" class="section">
+  <h2>¡Bienvenido al juego!</h2>
+  <p>Acá podría estar tu juego interactivo de Persona 🕹️</p>
+  <div class="persona-box" id="volver-menu2">🔙 Volver al menú</div>
+</div>
 
-    // Control de música
-    musicBtn.addEventListener("click", () => {
-      if (bgMusic.paused) {
-        bgMusic.play();
-        musicBtn.textContent = "🔇 Pausar Música";
-      } else {
-        bgMusic.pause();
-        musicBtn.textContent = "🎵 Música";
-      }
-    });
+<!-- Música de fondo -->
+<audio id="bg-music" loop>
+  <source src="musica/opening.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio HTML5.
+</audio>
 
-    // Redirección a historia.html
-    historiaBtn.addEventListener("click", () => {
-      window.location.href = "historia.html";
-    });
+<script>
+const musicBtn = document.getElementById("musica");
+const bgMusic = document.getElementById("bg-music");
+const historiaBtn = document.getElementById("historia");
+const startGameBtn = document.getElementById("start-game");
+const menu = document.getElementById("menu");
+const historiaSection = document.getElementById("historia-section");
+const gameSection = document.getElementById("game-section");
+const volverMenu1 = document.getElementById("volver-menu1");
+const volverMenu2 = document.getElementById("volver-menu2");
 
-    // Redirección a juego.html
-    startGameBtn.addEventListener("click", () => {
-      window.location.href = "juego.html";
-    });
-  </script>
+// Control música
+musicBtn.addEventListener("click", () => {
+  if (bgMusic.paused) {
+    bgMusic.play();
+    musicBtn.textContent = "🔇 Pausar Música";
+  } else {
+    bgMusic.pause();
+    musicBtn.textContent = "🎵 Música";
+  }
+});
+
+// Mostrar sección historia
+historiaBtn.addEventListener("click", () => {
+  menu.style.display = "none";
+  historiaSection.style.display = "block";
+});
+
+// Mostrar sección juego
+startGameBtn.addEventListener("click", () => {
+  menu.style.display = "none";
+  gameSection.style.display = "block";
+});
+
+// Volver al menú
+volverMenu1.addEventListener("click", () => {
+  historiaSection.style.display = "none";
+  menu.style.display = "block";
+});
+volverMenu2.addEventListener("click", () => {
+  gameSection.style.display = "none";
+  menu.style.display = "block";
+});
+</script>
+
 </body>
 </html>
