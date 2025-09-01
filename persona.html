@@ -4,10 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Persona</title>
-
   <!-- Fuente con vibes similares a Persona -->
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
@@ -38,7 +36,7 @@
       transform: rotate(-2deg);
     }
 
-    /* Efecto estilo “cómic” para Persona */
+    /* Botones estilo Persona */
     .persona-box {
       display: inline-block;
       padding: 15px 25px;
@@ -49,6 +47,7 @@
       border: 5px solid black;
       transform: skew(-10deg, -5deg);
       text-shadow: 2px 2px black;
+      cursor: pointer;
     }
 
     /* Animación vibrante */
@@ -67,15 +66,48 @@
 </head>
 <body>
   <h1>FOR REAL?????</h1>
-  <p>Bienvenido mi pau, aki tienes tu pagina d persona q obvio amas mas q a tu propia novia 🙄 pero eqis, espero t guste y n creas q por estoaceptaré q juguemos todos los persona pq naonao, de milagro nos terminaremos el 5. En fin bebi t amo sabes q lo q t hace feliz a vos, me hace feliz a mi, excepto si esa felicidad es serme infiel 😡</p>
-  <div class="persona-box">⚡ Start Game</div>
-  <div class="persona-box">📖 Historia</div>
-  <div class="persona-box">🎵 Música</div>
+  <p>
+    Bienvenido mi pau, aki tienes tu pagina d persona q obvio amas mas q a tu propia novia 🙄 pero eqis, espero t guste y n creas q por esto aceptare q juguemos todos los persona pq naonao, de milagro nos terminaremos el 5.  
+    En fin bebi t amo sabes q lo q t hace feliz a vos, me hace feliz a mi, excepto si esa felicidad es serme infiel 😡
+  </p>
+
+  <!-- Botones -->
+  <div class="persona-box" id="start-game">⚡ Start Game</div>
+  <div class="persona-box" id="historia">📖 Historia</div>
+  <div class="persona-box" id="musica">🎵 Música</div>
 
   <!-- Música de fondo -->
-  <audio id="bg-music" autoplay loop>
+  <audio id="bg-music" loop>
     <source src="musica/opening.mp3" type="audio/mpeg">
     Tu navegador no soporta audio HTML5.
   </audio>
+
+  <script>
+    const musicBtn = document.getElementById("musica");
+    const bgMusic = document.getElementById("bg-music");
+    const historiaBtn = document.getElementById("historia");
+    const startGameBtn = document.getElementById("start-game");
+
+    // Control de música
+    musicBtn.addEventListener("click", () => {
+      if (bgMusic.paused) {
+        bgMusic.play();
+        musicBtn.textContent = "🔇 Pausar Música";
+      } else {
+        bgMusic.pause();
+        musicBtn.textContent = "🎵 Música";
+      }
+    });
+
+    // Redirección a historia.html
+    historiaBtn.addEventListener("click", () => {
+      window.location.href = "historia.html";
+    });
+
+    // Redirección a juego.html
+    startGameBtn.addEventListener("click", () => {
+      window.location.href = "juego.html";
+    });
+  </script>
 </body>
 </html>
